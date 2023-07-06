@@ -1,0 +1,53 @@
+<%- include('./includes/header') %>
+<%- include('./includes/nav') %>
+
+<div class="container">
+    <h1 class="text-center mt-4">Faça o login ou crie uma conta</h1>
+    <p class="lead text-center">Abaixo você pode criar uma conta ou entra no sistema.</p>
+
+    <div class="container">
+      <%- include('./includes/messages')  %>
+      <div class="row">
+        <div class="col-4">
+          <h4 class="mt-4">Faça seu cadastro</h4>
+          <p class="lead">Crie sua conta para entrar no sistema</p>
+          
+          <form method="POST" action="/login/register">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="email">
+              
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Senha</label>
+              <input type="password" class="form-control" name="senha">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Criar Conta</button>
+          </form>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
+          <h4 class="mt-4">Faça seu login</h4>
+          <p class="lead">Entre na sua conta para operar no sistema</p>
+          <form method="POST" action="/login/login">
+            <div class="mb-3">
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="email">
+              
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Senha</label>
+              <input type="password" class="form-control" name="senha">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Entrar no sistema</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>  
+    
+<%- include('./includes/footer') %>
