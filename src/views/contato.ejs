@@ -1,0 +1,43 @@
+<%- include('./includes/header') %>
+<%- include('./includes/nav') %>
+
+<div class="container">
+    <h1 class="text-center mt-4">Cadastre ou edite seu contato</h1>
+    <p class="lead text-center">Abaixo você podera criar uma contato ou edita-lo.</p>
+
+    <div class="container">
+      <%- include('./includes/messages')  %>
+      <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-6 mt-5">
+          <form method="POST" action="/contato/register">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <div class="mb-3">
+              <label class="form-label">Nome</label>
+              <input type="text" class="form-control" name="nome">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Sobrenome</label>
+              <input type="text" class="form-control" name="sobrenome">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" name="email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Contato</label>
+              <input type="text" class="form-control" name="contato">
+            </div>
+           
+            <button type="submit" class="btn btn-primary mt-2">Enviar Contato</button>
+          </form>
+        </div>
+        <div class="col-3">
+          
+        </div>
+      </div>
+    </div>
+</div>  
+    
+<%- include('./includes/footer') %>
